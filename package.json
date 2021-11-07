@@ -1,0 +1,24 @@
+{
+  "name": "nodejs_hw_1",
+  "version": "1.0.0",
+  "description": "first homework",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StoliarskyiKostiantyn/nodejs_hw_1.git"
+  },
+  "author": "Stoliarsky_iKostiantyn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StoliarskyiKostiantyn/nodejs_hw_1/issues"
+  },
+  "homepage": "https://github.com/StoliarskyiKostiantyn/nodejs_hw_1#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
