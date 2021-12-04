@@ -12,7 +12,9 @@ async function listContacts() {
 
 async function getContactById(contactId) {
   const contacts = await listContacts();
-  const result = contacts.find((item) => item.id === parseInt(contactId));
+  const result = contacts.find(
+    (item) => item.id.toString() === contactId.toString()
+  );
   console.log(result);
   if (!result) {
     return null;
@@ -22,7 +24,9 @@ async function getContactById(contactId) {
 
 async function removeContact(contactId) {
   const contacts = await listContacts();
-  const idx = contacts.findIndex((item) => item.id === parseInt(contactId));
+  const idx = contacts.findIndex(
+    (item) => item.id.toString() === contactId.toString()
+  );
   if (idx === -1) {
     return null;
   }
@@ -32,8 +36,12 @@ async function removeContact(contactId) {
 }
 
 async function addContact(name, email, phone) {
+  if (!name || !email || !phone) {
+    console.log("Emty fields");
+    return;
+  }
   const contacts = await listContacts();
-  const newContact = { id: v4(), name: name, email: email, phone: phone };
+  const newContact = { id: v4(), name, email, phone };
   contacts.push(newContact);
   await fs.writeFile(contactsPath, JSON.stringify(contacts));
   return newContact;
